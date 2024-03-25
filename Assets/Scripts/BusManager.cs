@@ -138,6 +138,10 @@ public class BusManager : MonoBehaviour
     private float baseWeight = 2f;
 
 
+    //AUDIOSOURCES
+    public AudioSource deleteStationSound;
+    public AudioSource addStationSound;
+
 
     public int busMax, tramMax, trainMax;
 
@@ -339,6 +343,7 @@ public class BusManager : MonoBehaviour
             {
                 AddStationButtonClicked(buttonClicked);
             }
+            addStationSound.Play();
             GenerateDeleteButton(endPos);
         }
 
@@ -348,6 +353,7 @@ public class BusManager : MonoBehaviour
             StartCoroutine(ProcessNodeDeletionAndGenerateButtons(buttonClicked.transform.position));
             transportLineRender.RemoveLastPointFromLine(lineCode);
             Destroy(buttonClicked); // Destroy the delete button
+            deleteStationSound.Play();
         }
         if (buttonClicked.tag == "Done") //CONFIRM BUTTON
         {
