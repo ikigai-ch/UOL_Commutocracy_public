@@ -162,6 +162,11 @@ public class GameManager : MonoBehaviour
                     if (busLinesAvailable == 0)
                     {
                         busButton.interactable = false;
+                        //https://stackoverflow.com/questions/66155526/how-to-change-a-ui-button-disabled-color-on-runtime
+                        var colors = busButton.colors;
+                        Color buttonColour = new Color(0.933f, 0.627f, 0.173f, 1.0f);
+                        colors.disabledColor = buttonColour;
+
                     }
                     busAvailable.text = $"{busLinesAvailable}";
                     busModeID += 1;
